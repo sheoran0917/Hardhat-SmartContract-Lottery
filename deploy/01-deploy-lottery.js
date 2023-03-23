@@ -43,9 +43,9 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         waitConfirmations: network.config.blockConfirmations || 1,
     })
 
-    if (!developmentChains.includes(network.name)) {
-        log("Verifying the contract")
-        await verify.run(lottery.address, args)
+    if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
+        log("Verifying...")
+        await verify(lottery.address, args)
     }
     log("Deploy of lottery contarct is successfull!!!")
 }

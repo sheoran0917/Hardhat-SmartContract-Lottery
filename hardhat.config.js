@@ -43,4 +43,12 @@ module.exports = {
         //coinmarketcap: COIN_MARKET_KEY,
         // token: "MATIC",
     },
+    mocha: {
+        timeout: 500000, //200 seconds
+    },
+    etherscan: {
+        apiKey: {
+            sepolia: ETHERSCAN_API_KEY,
+        },
+    },
 }
